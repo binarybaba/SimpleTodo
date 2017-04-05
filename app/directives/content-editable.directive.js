@@ -4,17 +4,18 @@
   angular.module('todoApp')
   .directive('contenteditable', contenteditable);
 
-  contenteditable.$inject = ['$sce'];
+  contenteditable.$inject = ['$sce']; // okay youre gonna explain this $sce thing to me
   function contenteditable($sce) {
     return {
       restrict: 'A', // only activate on element attribute
       require: '?ngModel', // get a hold of NgModelController
       link: function(scope, element, attrs, ngModel) {
-        if (!ngModel) return; // do nothing if no ng-model
+        if (!ngModel) return; // do nothing if no ng-model // THANK YOU FOR THIS SPODERMON!!!
 
         // Specify how UI should be updated
         ngModel.$render = function() {
           element.html($sce.getTrustedHtml(ngModel.$viewValue || ''));
+          //OH MY GOD WHAT ON EARTH!! WHAT IS GOING ON!!!
         };
 
         // Listen for change events to enable binding

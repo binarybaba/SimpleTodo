@@ -3,9 +3,10 @@
 
 	angular.module('todoApp').controller('todoAppController', todoAppController);
 
-	todoAppController.$inject = ['todoService'];
+	todoAppController.$inject = ['todoService']; // I never do this man. Thanks for this.
+	// Question: what's the advantage of doing this? I mean its neat and maintainable but I'm sure that's not the only reason..
 	function todoAppController(todoService){
-		var main = this;
+		var main = this; // I'm guessing this is somewhere close to controllerAs style?
 		main.addTodo = addTodo;
 
 		function addTodo(){
@@ -14,7 +15,7 @@
 		}
 
 		//init
-		function $onInit(){
+		function $onInit(){ // okay what was this? Is this some kind of event that angular fires?
 			main.latestTodo = '';
 		}
 	}

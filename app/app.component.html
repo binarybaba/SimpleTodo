@@ -4,13 +4,16 @@
     </header>
     <section>
         <div class="row">
+            <!--Okay I don't like newTodoForm.$valid I dont know I do that inside the controller. I usually have a service that takes in the form, checkes for all elements that has ng-invalid and applies css classes on those elements to tell the user. I keep minimal..-->
             <form name="newTodoForm" autofocus novalidate ng-submit="newTodoForm.$valid && main.addTodo()" class="col-sm-offset-3 col-sm-6">
                 <input class="form-control new-todo" ng-model="main.latestTodo" name="latestTodo"
                    tooltip-placement="bottom" required=""
-                   uib-tooltip='Press enter key to add new todo..' 
+                   uib-tooltip='Press enter key to add new todo..'
                    placeholder="Enter todo.." tooltip-trigger="mouseenter"/>
                 <button class="btn btn-success add-todo-btn">Add Todo</button>
             </form>
+            <!--LINE 10: Im guessing this tooltip-placement is also a bootstrap directive? -->
+            <!--LINE 11: How dare you use bootstrap's directives!!!! IM FURIOUS!! -->
         </div>
         <hr/>
         <todo-list></todo-list>
